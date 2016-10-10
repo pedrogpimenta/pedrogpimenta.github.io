@@ -573,7 +573,7 @@ a:hover,a:focus {
 .projects-worked li {
   display: inline-block;
   vertical-align: middle;
-  width: 33.333%;
+  width: 50%;
   margin-bottom: 1rem;
   padding: .5rem;
 }
@@ -706,6 +706,7 @@ a:hover,a:focus {
   }
 
   .projects-worked li {
+    width: 33.333%;
     margin-bottom: 0;
   }
 
