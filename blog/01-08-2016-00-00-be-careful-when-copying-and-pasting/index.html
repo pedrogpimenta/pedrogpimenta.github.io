@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedro Pimenta</title>
+  <link rel="stylesheet" href="/assets/css/main.css"></head>
+<body>
+  <div class="main-container">
+    <header class="header-main">
+      <h1 class="header-main__title">Hi, I'm
+        <span class="header-main__name">
+          <a href="/"><img src="/assets/img/logo-pimenta-i.png" alt="Pedro Pimenta"></a>
+        </span>
+        freelance graphic designer and front-end developer.</h1>
+      <nav class="header-main__nav">
+        <h1 class="vh">Main Navigation</h1>
+        <ul>
+          <li>
+            <a href="/">home</a>
+          </li>
+          <li>
+            <a href="/blog">blog</a>
+          </li>
+          <li>
+            <a href="#contact">contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>    <section class="post">
+      <h1 class="post__title">Be careful when copying and pasting</h1>
+      <div class="meta">
+        <span class="meta__date">08 January 2016</span>
+      </div>
+      <p>At my job (and probably yours) we're always copying and pasting stuff. Be it little snippets, big chunks of code from old projects or from the web (of course <a href="https://blog.codinghorror.com/a-modest-proposal-for-the-copy-and-paste-school-of-code-reuse/">you never do that</a>), or just plain client content, we're doing it. This post focus mainly on copying content because that's when you're copying from different sources, programs and interfaces but it applies to everything.</p>
+<p>On one bug-tracking morning I got this screenshot, saying there was a bug with the word &quot;código&quot; on Firefox:</p>
+<p><img src="image01.png" alt="First ocurrence of the bug"></p>
+<p>As obivous and visible as a bug can be, I didn't see it. Weird. I opened the faulty page on my machine with Chromium: it looked OK. Weird. I opened Chrome, Safari and Firefox and it only ocurred on Firefox. I looked at the code on Sublime Text and it look fine: <code>código</code>. Wow.</p>
+<p>So I got stuck looking at it, inspecting it with all the browser's tools I can, couldn't find any lead. I wrote an <code>ó</code> beside the word <code>código</code> and it looked fine. It was definitely a problem with that <code>ó</code>. I could delete the word and move on, but no, I need to get to the bottom of this.</p>
+<p>So I copied the word from Sublime Text and searched the web for &quot;translate unicode&quot; and &quot;copy characters reveal unicode&quot; (you can see i was very lost on this) and I was brought to a couple of pages that helped.</p>
+<p>One is <a href="https://r12a.github.io/apps/conversion/">r12a's Unicode code converter</a> which converted the copied <code>ó</code> to <code>o&amp;#x0301;</code>. This is two characters, not one as intended. The other page is <a href="http://www.mclean.net.nz/ucf/">Grant McLean's Unicode Character Finder</a> which show this when I pasted the culprit character:</p>
+<p><img src="image02.png" alt="The Unicode Character Finder show a &quot;Combining acute accent&quot;"></p>
+<p>It forgo the first &quot;o&quot; because when pasting in this box, it only shows the last character. Definitely two characters. How can this be? I don't know.</p>
+<p>Suddenly it hit me. This is client text, I copied this from somewhere. I can't recall correctly but I think this particular text was fast-forwarded from a client email. So it is weird character handling from either my end or the client's end or the man in the middle. And only Firefox show it incorrectly. Weird.</p>
+<p><strong>Note:</strong> it seems that some fonts handle these characters in different ways. When writing this post I noticed that he font face I'm using on Sublime handles these two characters as the one it should be, but if I change it to, for example, <a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata</a>, it shows up different:</p>
+<p><img src="image03.png" alt="Differences between Courier and Inconsolata"></p>
+<p>This is because Inconsolata doesn't have this character in its table so it switches to the default one.</p>
+
+    </section>
+    <section id="contact" class="contact">
+      <h1 class="contact__title">Contact</h1>
+      <p>My entire name is <strong>Pedro da Gama Lança Guerra Pimenta</strong> and my email is <a href="mailto:pedro@pimenta.co">pedro@pimenta.co</a>.<br>You can find me on <a href="http://twitter.com/pedrogpimenta" target="_blank">Twitter</a>, <a href="https://es.linkedin.com/in/pedrogpimenta" target="_blank">LinkedIn</a>, <a href="https://dribbble.com/pedrogpimenta" target="_blank">Dribbble</a>, <a href="https://github.com/pedrogpimenta" target="_blank">Github</a>, <a href="https://www.designernews.co/users/714/pedro-pimenta" target="_blank">Designer News</a> and <a href="https://news.ycombinator.com/user?id=pedrogpimenta" target="_blank">Hacker News</a>.</p>
+    </section>  </div>
+</body>
+</html>
